@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/template.xhtml">
+
+	<ui:define name="menu">
+		<div class="menu">
+			<ui:include src="/includes/menuPrincipal.xhtml"></ui:include>
+		</div>
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<div class="conteudoCentro">
+			<div align="center">
+				<h:outputLabel value="#{msgs.tituloListaDeBens}" styleClass="titulo" />
+				<br /><br />
+				<h:form>
+					<h:panelGroup layout="block" style="height:300px;overflow-y:scroll">
+						<h:dataTable value="#{MBBem.listadeBem}" var="objB"
+							styleClass="orders" headerClass="ordersHeader"
+							columnClasses="oddColumn, evenColumn, coluna3,coluna4,coluna5
+							coluna6,coluna7,coluna8,coluna9,coluna10,coluna11,coluna12,coluna12">
+							<f:facet name="header">
+								<h:commandButton value="#{msgs.labelCadastrarNovoBem}"
+									action="#{MBBem.actionNovo}" styleClass="button"/>
+							</f:facet>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.labelNome}" />
+								</f:facet>
+								<h:outputLabel value="#{objB.nome}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.labelCategoria}" />
+								</f:facet>
+								<h:outputLabel value="#{objB.tipo.categoria}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.labelData}" />
+								</f:facet>
+								<h:outputLabel value="#{objB.dtAquisicao}" >
+									<f:convertDateTime />
+								</h:outputLabel>
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.labelValorAquisicao}" />
+								</f:facet>
+								<h:outputLabel value="#{objB.valorAquisicao}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.labelVidaUtil}" />
+								</f:facet>
+								<h:outputLabel value="#{objB.vidaUtil}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.labelTaxa}" />
+								</f:facet>
+								<h:outputLabel value="#{objB.valorResidual}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.labelTempoDeUtilizacao}" />
+								</f:facet>
+								<h:outputLabel value="#{objB.turno}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.labelStatus}" />
+								</f:facet>
+								<h:outputLabel value="#{objB.usado}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.labelStatusEstado}" />
+								</f:facet>
+								<h:outputLabel value="#{objB.status}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.opcaoDepreciar}" />
+								</f:facet>
+								<h:commandButton action="#{MBBem.actionDepreciar}"
+									value="#{msgs.btnDepreciar}" styleClass="button">
+									<f:setPropertyActionListener value="#{objB}"
+										target="#{MBBem.objB}" />
+								</h:commandButton>
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.opcaoDarBaixa}" />
+								</f:facet>
+								<h:commandButton action="#{MBBem.actionEfetuarBaixa}"
+									value="#{msgs.btnListBaixarBem}" styleClass="button">
+									<f:setPropertyActionListener value="#{objB}"
+										target="#{MBBem.objB}" />
+								</h:commandButton>
+								<!-- -->
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.opcaoEditarBem}" />
+								</f:facet>
+								<h:commandButton action="formulario_bem"
+									value="#{msgs.btnEditar}" styleClass="button">
+									<f:setPropertyActionListener value="#{objB}"
+										target="#{MBBem.objB}" />
+								</h:commandButton>
+							</h:column>
+						</h:dataTable>
+					</h:panelGroup>
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+
+</ui:composition>
+</html>

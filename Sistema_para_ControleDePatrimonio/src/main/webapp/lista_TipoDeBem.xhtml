@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/template.xhtml">
+
+	<ui:define name="menu">
+		<div class="menu">
+			<ui:include src="/includes/menuPrincipal.xhtml"></ui:include>
+		</div>
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<div class="conteudoCentro">
+			<div align="center">
+				<h:outputLabel value="#{msgs.tituloTipoBem}" styleClass="titulo" />
+				<br /> <br />
+				<h:form>
+					<h:panelGroup layout="block" style="height:300px;overflow-y:scroll">
+						<h:dataTable value="#{MBTipo.listagem}" var="objT"
+							styleClass="orders" headerClass="ordersHeader"
+							columnClasses="oddColumn, evenColumn, coluna3,coluna4">
+							<f:facet name="header">
+								<h:commandButton value="#{msgs.labelCadastraTipoBem}"
+									action="#{MBTipo.actionNovo}" styleClass="button" />
+							</f:facet>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.labelCodigo}" />
+								</f:facet>
+								<h:outputLabel value="#{objT.codigo}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.labelCategoria}" />
+								</f:facet>
+								<h:outputLabel value="#{objT.categoria}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.opcaoExcluir}" />
+								</f:facet>
+								<h:commandLink action="#{MBTipo.actionApagar}">
+									<h:graphicImage library="icones" name="garbage.png" />
+									<f:setPropertyActionListener value="#{objT}"
+										target="#{MBTipo.tipo}" />
+								</h:commandLink>
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.opcaoEditarBem}" />
+								</f:facet>
+								<h:commandLink action="formulario_tipoDeBem">
+									<h:graphicImage library="icones" name="edit.png" />
+									<f:setPropertyActionListener value="#{objT}"
+										target="#{MBTipo.tipo}" />
+								</h:commandLink>
+							</h:column>
+						</h:dataTable>
+					</h:panelGroup>
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+
+</ui:composition>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/template.xhtml">
+
+	<ui:define name="conteudo">
+		<div class="conteudoCentro">
+			<div align="center">
+				<h:form>
+					<br />
+					<br />
+					<h:outputLabel value="#{msgs.tituloLogin}" styleClass="titulo" />
+					<br />
+					<br />
+					<h:panelGrid columns="2">
+						<h:outputLabel value="#{msgs.usuario}:" styleClass="msn" />
+						<h:inputText value="#{MBUsuario.usuario.login}"
+							styleClass="msnIput" />
+						<h:outputLabel value="#{msgs.senha}:" styleClass="msn" />
+						<h:inputSecret value="#{MBUsuario.usuario.senha}"
+							styleClass="msnIput" />
+						<h:commandButton value="#{msgs.btnLogin}"
+							action="#{MBUsuario.actionLogin}" styleClass="button" />
+					</h:panelGrid>
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+
+</ui:composition>
+</html>

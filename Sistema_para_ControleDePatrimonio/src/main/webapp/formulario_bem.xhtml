@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/template.xhtml">
+
+	<ui:define name="menu">
+		<div class="menu">
+			<ui:include src="/includes/menuPrincipal.xhtml"></ui:include>
+		</div>
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<div class="conteudoCentro">
+			<div align="center">
+				<h:outputLabel value="#{msgs.tituloCadastroBem}" styleClass="titulo" />
+				<h:inputHidden value="#{MBBem.objB.id}" />
+				<br /> <br />
+				<h:form>
+					<h:panelGrid columns="3">
+						<h:outputLabel value="#{msgs.labelNome}:" styleClass="msn" />
+						<h:inputText id="nome" value="#{MBBem.objB.nome}" required="true"
+							label="#{msgs.labelNome}" styleClass="msnIput" />
+						<h:message for="nome" errorClass="msgErros" />
+						<h:outputLabel value="#{msgs.labelData}:" styleClass="msn" />
+						<h:inputText id="dtAqui" value="#{MBBem.objB.dtAquisicao}"
+							required="true" label="#{msgs.labelData}" styleClass="msnIput">
+							<f:convertDateTime />
+						</h:inputText>
+						<h:message for="dtAqui" errorClass="msgErros" />
+						<h:outputLabel value="#{msgs.labelCategoria}:" styleClass="msn" />
+						<h:selectOneMenu id="tipo" value="#{MBBem.objB.tipo.codigo}"
+							required="true" label="#{msgs.labelCategoria}"
+							styleClass="msnIput">
+							<f:selectItems value="#{MBBem.listagem}" var="obj"
+								itemLabel="#{obj.categoria}" itemValue="#{obj.codigo}" />
+						</h:selectOneMenu>
+						<h:message for="tipo" errorClass="msgErros" />
+						<h:outputLabel value="#{msgs.labelValorAquisicao}:"
+							styleClass="msn" />
+						<h:inputText id="valAqui" value="#{MBBem.objB.valorAquisicao}"
+							required="true" label="#{msgs.labelValorAquisicao}"
+							styleClass="msnIput" />
+						<h:message for="valAqui" errorClass="msgErros" />
+						<h:outputLabel value="#{msgs.labelVidaUtil}:" styleClass="msn" />
+						<h:selectOneMenu id="vidaUtil" value="#{MBBem.objB.vidaUtil}"
+							required="true" label="#{msgs.labelVidaUtil}"
+							styleClass="msnIput">
+							<f:selectItems value="#{MBBem.aux.yearItems}" />
+						</h:selectOneMenu>
+						<h:message for="vidaUtil" errorClass="msgErros" />
+						<h:outputLabel value="#{msgs.labelTaxa} :" styleClass="msn" />
+						<h:inputText id="taxa" value="#{MBBem.objB.valorResidual}"
+							maxlength="3" size="5" required="true" label="#{msgs.labelTaxa}"
+							styleClass="msnIput" />
+						<h:message for="taxa" errorClass="msgErros" />
+						<h:outputLabel value="#{msgs.labelUsado}:" styleClass="msn" />
+						<h:selectOneRadio id="novoUsado" value="#{MBBem.objB.usado}"
+							selected="selected" layout="lineDirection" required="true"
+							label="#{msgs.labelUsado}" styleClass="msnIput">
+							<f:selectItems value="#{MBBem.aux.usoItems}" />
+						</h:selectOneRadio>
+						<h:message for="novoUsado" errorClass="msgErros" />
+						<h:outputLabel value="#{msgs.labelTempoDeUso}:" styleClass="msn" />
+						<h:inputText value="#{MBBem.objB.tempoDeUso}" maxlength="3"
+							size="5" required="true" id="tempoUsado"
+							label="#{msgs.labelTempoDeUso}" styleClass="msnIput" />
+						<h:message for="tempoUsado" errorClass="msgErros" />
+						<h:outputLabel value="#{msgs.labelTempoDeUtilizacao}:"
+							styleClass="msn" />
+						<h:selectOneMenu id="turnos" value="#{MBBem.objB.turno}"
+							required="true" label="#{msgs.labelTempoDeUtilizacao}"
+							styleClass="msnIput">
+							<f:selectItems value="#{MBBem.aux.listaTurnos}" />
+						</h:selectOneMenu>
+						<h:message for="turnos" errorClass="msgErros" />
+						<h:commandButton value="#{msgs.btnCadastrar}"
+							action="#{MBBem.actionGravar}" styleClass="button" />
+					</h:panelGrid>
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+
+</ui:composition>
+</html>

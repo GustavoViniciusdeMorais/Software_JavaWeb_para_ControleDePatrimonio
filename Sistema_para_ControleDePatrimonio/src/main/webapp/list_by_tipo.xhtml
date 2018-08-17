@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/template.xhtml">
+
+	<ui:define name="menu">
+		<div class="menu">
+			<ui:include src="/includes/menuPrincipal.xhtml"></ui:include>
+		</div>
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<div class="conteudoCentro">
+			<div align="center">
+				<h:outputLabel value="#{msgs.tituloListaPorTipo}"
+					styleClass="titulo" />
+				<br /> <br />
+				<h:form>
+					<h:panelGrid columns="2">
+						<h:outputLabel value="#{msgs.labelStatus}:" styleClass="msn" />
+						<h:selectOneMenu value="#{MBBem.status}" styleClass="msnIput">
+							<f:selectItems value="#{MBBem.aux.llistaStatus}" />
+						</h:selectOneMenu>
+						<h:outputLabel value="#{msgs.labelCategoria}:" styleClass="msn" />
+						<h:selectOneMenu value="#{MBBem.tipo}" styleClass="msnIput">
+							<f:selectItems value="#{MBBem.listagem}" var="obj"
+								itemLabel="#{obj.categoria}" itemValue="#{obj.codigo}" />
+						</h:selectOneMenu>
+						<h:commandButton value="#{msgs.btnBuscar}"
+							action="#{MBBem.actionBuscarPorTipo}" styleClass="button" />
+					</h:panelGrid>
+					<h:panelGroup layout="block" style="height:300px;overflow-y:scroll">
+						<h:dataTable value="#{MBBem.listaPorTipo}" var="objB"
+							styleClass="orders" headerClass="ordersHeader"
+							columnClasses="oddColumn, evenColumn, coluna3,coluna4,coluna5
+							coluna6,coluna7,coluna8,coluna9">
+							<f:facet name="header">
+
+							</f:facet>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.labelNome}" />
+								</f:facet>
+								<h:outputLabel value="#{objB.nome}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.labelCategoria}" />
+								</f:facet>
+								<h:outputLabel value="#{objB.tipo.categoria}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.labelData}" />
+								</f:facet>
+								<h:outputLabel value="#{objB.dtAquisicao}">
+									<f:convertDateTime />
+								</h:outputLabel>
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.labelValorAquisicao}" />
+								</f:facet>
+								<h:outputLabel value="#{objB.valorAquisicao}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.labelVidaUtil}" />
+								</f:facet>
+								<h:outputLabel value="#{objB.vidaUtil}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.labelTaxa}" />
+								</f:facet>
+								<h:outputLabel value="#{objB.valorResidual}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.labelTempoDeUtilizacao}" />
+								</f:facet>
+								<h:outputLabel value="#{objB.turno}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.labelStatusEstado}" />
+								</f:facet>
+								<h:outputLabel value="#{objB.status}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.labelDtVenda}" />
+								</f:facet>
+								<h:outputLabel value="#{objB.dtVenda}">
+									<f:convertDateTime />
+								</h:outputLabel>
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.labelValVenda}" />
+								</f:facet>
+								<h:outputLabel value="#{objB.valorDeVenda}" />
+							</h:column>
+						</h:dataTable>
+					</h:panelGroup>
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+
+</ui:composition>
+</html>

@@ -1,0 +1,177 @@
+.titulo {
+	font-size: 1.3em;
+	font-style: italic;
+	color: #008CBA;
+	text-decoration: underline;
+}
+
+.subTitulo {
+	font-size: 1.1em;
+	font-style: italic;
+	color: blue;
+}
+.msn{
+	font-size: 1.1em;
+	font-style: italic;
+	color: black;
+}
+.msnIput{
+	font-size: 1em;
+	font-style: italic;
+	color: black;
+}
+.a {
+	color: #008CBA;
+	text-decoration:none;
+}
+.menu {
+	background: #e7e7e7; 
+	width : 960px;
+	margin-left: 160px;
+	width: 960px;
+	color:#008CBA;
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background: #e7e7e7;
+	border-bottom: 1px solid #008CBA;
+	min-width: 160px;
+	box-shadow: 0px 8px 5px 0px rgba(0, 0, 0, 0.2);
+	padding: 12px 16px;
+}
+
+.conteudoTitulo {
+	background: #008CBA;
+	width: 960px;
+	margin-left: 160px;
+	text-align: center;
+	font-size: 1.3em;
+	font-style: italic;
+	color: white;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.tituloRodape {
+	font-size: 1.1em;
+	font-style: italic;
+	color: white;
+}
+
+.conteudoCentro {
+	background-image: linear-gradient(to bottom, white, #f9f9f9);
+	width: 960px;
+	height: 400px;
+	margin-left: 160px;
+	text-align: center;
+}
+
+.orders {
+	border-collapse: collapse;
+}
+
+.ordersHeader {
+	text-align: center;
+	font-style: italic;
+	color: black;
+	border-bottom: 1px solid #ddd;
+	border-right-width: 4000px solid;
+}
+
+.oddColumn {
+	height: 25px;
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+}
+
+.evenColumn {
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+}
+
+.coluna3 {
+	height: 25px;
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+}
+
+.coluna4 {
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+}
+
+.coluna5 {
+	height: 25px;
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+}
+
+.coluna6 {
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+}
+
+.coluna7 {
+	height: 25px;
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+}
+
+.coluna8 {
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+}
+
+.coluna9 {
+	height: 25px;
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+}
+
+.coluna10 {
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+}
+
+.coluna11 {
+	height: 25px;
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+}
+
+.coluna12 {
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+}
+
+.button {
+	color: white;
+	font-size: 1em;
+	background-color: #008CBA;
+	border: 2px solid #008CBA;
+}
+
+.button:hover {
+	background-color: #555555;
+	border: 2px solid #555555;
+	color: white;
+}
+.msgErroLogin{
+	color: red;
+	font-size: 1.8em;
+	font-style: italic;
+}
+.msgErros {
+	color: red;
+	font-size: 1.1em;
+	font-style: italic;
+}

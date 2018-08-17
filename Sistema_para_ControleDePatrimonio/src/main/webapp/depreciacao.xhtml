@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/template.xhtml">
+
+	<ui:define name="menu">
+		<div class="menu">
+			<ui:include src="/includes/menuPrincipal.xhtml"></ui:include>
+		</div>
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<div class="conteudoCentro">
+			<div align="center">
+				<h:form>
+					<h:outputLabel value="#{msgs.tituloTelaDepreciacao}" styleClass="titulo" />
+					<h:panelGrid columns="3">
+						<h:outputLabel value="#{msgs.labelNome}:" styleClass="msn"/>
+						<h:inputText id="nome" value="#{MBBem.objB.nome}" disabled="true" 
+							required="true" label="#{msgs.labelNome}" styleClass="msnIput"/>
+						<h:message for="nome" errorClass="msgErros" />
+						<h:outputLabel value="#{msgs.labelValorAquisicao}:" styleClass="msn"/>
+						<h:inputText id="valAqui" value="#{MBBem.objB.valorAquisicao}" disabled="true" 
+							required="true" label="#{msgs.labelValorAquisicao}" styleClass="msnIput"/>
+						<h:message for="valAqui" errorClass="msgErros" />
+						<h:outputLabel value="#{msgs.labelStatusEstado}:" styleClass="msn"/>
+						<h:inputText id="status" value="#{MBBem.objB.status}" disabled="true"
+							required="true" label="#{msgs.labelStatusEstado}" styleClass="msnIput"/>
+						<h:message for="status" errorClass="msgErros" />
+						<h:outputLabel value="#{msgs.labelData}:" styleClass="msn"/>
+						<h:inputText id="dtAqui" value="#{MBBem.objB.dtAquisicao}" disabled="true"
+							required="true" label="#{msgs.labelData}" styleClass="msnIput">
+							<f:convertDateTime />
+						</h:inputText>
+						<h:message for="dtAqui" errorClass="msgErros" />
+						<h:outputLabel value="#{msgs.labelValorContabil}:" styleClass="msn"/>
+						<h:inputText id="vc" value="#{MBBem.objB.valorContabil}" disabled="true" 
+							required="true" label="#{msgs.labelValorContabil}" styleClass="msnIput"/>
+						<h:message for="vc" errorClass="msgErros" />
+						<h:outputLabel value="#{msgs.labelValorResidual}:" styleClass="msn"/>
+						<h:inputText id="vr" value="#{MBBem.objB.valorResidual}" disabled="true" 
+							required="true" label="#{msgs.labelValorResidual}" styleClass="msnIput"/>
+						<h:message for="vr" errorClass="msgErros" />
+						<h:outputLabel value="#{msgs.labelValorDepreciado}:" styleClass="msn"/>
+						<h:inputText id="da" value="#{MBBem.objB.valorDepreciado}" disabled="true" 
+							required="true" label="#{msgs.labelValorDepreciado}" styleClass="msnIput"/>
+						<h:message for="da" errorClass="msgErros" />
+						<h:outputLabel value="#{msgs.labelVidaUtil}:" styleClass="msn"/>
+						<h:inputText id="vidaUtil" value="#{MBBem.objB.vidaUtil}" disabled="true" 
+							required="true" label="#{msgs.labelVidaUtil}" styleClass="msnIput"/>
+						<h:message for="vidaUtil" errorClass="msgErros" />
+						<h:outputLabel value="#{msgs.labelUltimaDtDepreciado}:" styleClass="msn"/>
+						<h:inputText id="dtVend" value="#{MBBem.objB.dtVenda}" required="true"
+										label="#{msgs.labelUltimaDtDepreciado}" styleClass="msnIput">
+							<f:convertDateTime />
+						</h:inputText>
+						<h:message for="dtVend" errorClass="msgErros"/>
+					</h:panelGrid>
+					<h:panelGrid columns="2">
+						<h:commandButton value="#{msgs.btnDepreciar}" action="#{MBBem.recalcularDepreciacao}" 
+							styleClass="button"/>
+					</h:panelGrid>
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

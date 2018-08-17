@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/template.xhtml">
+
+	<ui:define name="menu">
+		<div class="menu">
+			<ui:include src="/includes/menuPrincipal.xhtml"></ui:include>
+		</div>
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<div class="conteudoCentro">
+			<div align="center">
+				<h:outputLabel value="#{msgs.tituloCadastrarNovoTipo}"
+					styleClass="titulo" />
+				<br />
+				<br />
+				<h:form>
+					<h:inputHidden value="#{MBTipo.tipo.codigo}" />
+					<h:panelGrid columns="4">
+						<h:outputLabel value="#{msgs.labelNomeCategoria}:"
+							styleClass="msn" />
+						<h:inputText id="nome" value="#{MBTipo.tipo.categoria}"
+							styleClass="msnIput" required="true"
+							label="#{msgs.labelNomeCategoria}" />
+						<h:commandButton value="#{msgs.btnCadastrar}"
+							action="#{MBTipo.actionGravar}" styleClass="button" />
+						<h:message for="nome" styleClass="msgErros" />
+					</h:panelGrid>
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+
+</ui:composition>
+</html>
